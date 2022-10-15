@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinjie.bbs_java.mapper.ArticleMapper">
+
+    <select id="selectArticlePage" resultType="com.yinjie.bbs_java.entity.Article">
+        select a.*,u.avatar,u.email,u.nick_name,t.type from bbs_article a,bbs_user u,bbs_article_type t
+        where a.category = #{category}
+              and a.author_id = u.id
+              and a.type_id = t.id
+              and a.is_delete = 0
+              and a.status = 0
+            <if test="type_id != null">
+                and a.type_id = #{type_id}
+            </if>
+            <if test="title != null and title != ''">
+                and a.title like concat('%',#{title,jdbcType=VARCHAR},'%')
+            </if>
+        order by create_time desc
+    </select>
+    <select id="selectArticleById" resultType="com.yinjie.bbs_java.entity.Article">
+        select a.*,u.avatar,u.email,u.nick_name,t.type from bbs_article a,bbs_user u,bbs_article_type t where a.id = #{id}
+              and a.author_id = u.id
+              and a.type_id = t.id
+    </select>
+    <resultMap id="parandchildComment" type="com.yinjie.bbs_java.dto.ParComment">
+        <id column="pid" property="id"/>
+        <result column="article_id" property="articleId"/>
+        <result column="user_id" property="userId"/>
+        <result column="user_email" property="userEmail"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="user_avatar" property="userAvatar"/>
+        <result column="pcontent" property="content"/>
+        <result column="pcreate_time" property="createTime"/>
+        <collection property="childCommentList" ofType="com.yinjie.bbs_java.dto.ChildComment">
+            <id column="cid" property="id"/>
+            <result column="reply_id" property="replyId"/>
+            <result column="reply_email" property="replyEmail"/>
+            <result column="reply_nick_name" property="replyNickName"/>
+            <result column="reply_avatar" property="replyAvatar"/>
+            <result column="reply_reply_id" property="replyReplyId"/>
+            <result column="reply_reply_email" property="replyReplyEmail"/>
+            <result column="reply_reply_nick_name" property="replyReplyNickName"/>
+            <result column="reply_reply_avatar" property="replyReplyAvatar"/>
+            <result column="ccontent" property="content"/>
+            <result column="ccreate_time" property="createTime"/>
+        </collection>
+    </resultMap>
+    <select id="selectComment" resultMap="parandchildComment">
+        select p.id as pid,p.article_id,p.user_id,p.user_email,p.nick_name,p.user_avatar,p.content as pcontent,p.create_time as pcreate_time,
+               c.id as cid,c.reply_id,c.reply_email,c.reply_nick_name,c.reply_avatar,
+               c.reply_reply_id,c.reply_reply_email,c.reply_reply_nick_name,c.reply_reply_avatar,c.content as ccontent,c.create_time as ccreate_time
+                from bbs_par_comment p left join bbs_child_comment c on p.id = c.parent_id WHERE p.article_id = #{id} order by p.create_time,c.create_time asc
+    </select>
+    <select id="selectPersonArticle" resultType="com.yinjie.bbs_java.entity.Article">
+        select a.*,u.email,u.avatar,u.nick_name from bbs_article a,bbs_user u where a.author_id = #{uid} and a.author_id = u.id and a.is_delete = 0 and a.category = #{category} order by a.create_time desc
+    </select>
+    <select id="SelectMyCollection" resultType="com.yinjie.bbs_java.entity.Article">
+        select a.*,u.email,u.avatar from bbs_article a,bbs_user u,bbs_user_collection c where c.user_id = #{uid} and c.article_id = a.id and a.author_id = u.id and a.is_delete = 0 order by a.create_time desc
+    </select>
+    <select id="selectALLArticle" resultType="com.yinjie.bbs_java.entity.Article">
+        select a.*,u.avatar,u.email,u.nick_name,t.type from bbs_article a,bbs_user u,bbs_article_type t
+        where a.author_id = u.id
+        and a.type_id = t.id
+        and a.is_delete = 0
+        <if test="author != null and author != ''">and u.nick_name like concat('%',#{author,jdbcType=VARCHAR},'%')</if>
+        <if test="content != null and content != ''">and a.content like concat('%',#{content,jdbcType=VARCHAR},'%')</if>
+        <if test="startTime != null and startTime != ''">and a.create_time >= #{startTime}</if>
+        <if test="endTime != null and endTime != ''">and a.create_time <![CDATA[<=]]> #{endTime}</if>
+        order by create_time desc
+    </select>
+    <select id="selectArticleByType" resultType="com.yinjie.bbs_java.entity.Article">
+        select a.*,u.email,u.nick_name,u.avatar from bbs_article a,bbs_user u
+        where a.author_id = u.id
+          and a.type_id = #{typeId}
+          and a.is_delete = 0
+          and a.status = 0
+        order by update_time desc
+        limit 5
+     </select>
+
+
+</mapper>
