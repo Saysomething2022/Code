@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3223979 */
+  src: url('iconfont.woff2?t=1646488294024') format('woff2'),
+       url('iconfont.woff?t=1646488294024') format('woff'),
+       url('iconfont.ttf?t=1646488294024') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class^="el-icon-icon"], [class*=" el-icon-icon"] {
+  font-family:"iconfont" !important;
+  /* 以下内容参照第三方图标库本身的规则 */
+  font-size: 18px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-dianzan:before {
+  content: "\e656";
+}
+
+.icon-smile:before {
+  content: "\e783";
+}
+
+.icon-timeout:before {
+  content: "\e784";
+}
+
+.icon-adduser:before {
+  content: "\e7ae";
+}
+
+.icon-deleteteam:before {
+  content: "\e7af";
+}
+
+.icon-addteam:before {
+  content: "\e7b0";
+}
+
+.icon-unlike:before {
+  content: "\e7c8";
+}
+
+.icon-check:before {
+  content: "\e7fc";
+}
+
+.icon-message-fill:before {
+  content: "\e84a";
+}
+
+.icon-good:before {
+  content: "\e62a";
+}
+
