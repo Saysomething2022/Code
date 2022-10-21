@@ -3,7 +3,7 @@ import { ElMessage } from 'element-plus'
 import {UserStore} from "@/store";
 
 if (process.env.NODE_ENV == "production") {
-  axios.defaults.baseURL = "http://forgetive.org:32486"
+  axios.defaults.baseURL = "https://bbs-backend.forgetive.org:32486"
 } else {
   axios.defaults.baseURL = "http://localhost:9090"
 }
