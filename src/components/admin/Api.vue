@@ -1,6 +1,7 @@
 <template>
   <el-container>
-    <iframe src="http://localhost:8888/swagger-ui/index.html#/" class="api"></iframe>
+    <iframe v-if="process.env.NODE_ENV == 'production'" src="http://localhost:8888/swagger-ui/index.html#/" class="api"></iframe>
+    <iframe v-else src="https://bbs-backend.forgetive.org/swagger-ui/index.html#/" class="api"></iframe>
   </el-container>
 
 </template>

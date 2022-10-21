@@ -4,6 +4,18 @@
         <el-form :model="form">
           <el-form-item label="头像" :label-width="formLabelWidth">
             <el-upload
+                v-if="process.env.NODE_ENV == 'production'"
+                class="avatar-uploader"
+                action="https://bbs-backend.forgetive.org/user/uploadAvatar"
+                :show-file-list="false"
+                multiple
+                :on-success="handleAvatarSuccess"
+                :before-upload="beforeAvatarUpload">
+              <img v-if="form.avatar" :src="form.avatar" class="avatar">
+              <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            </el-upload>
+            <el-upload
+                v-else
                 class="avatar-uploader"
                 action="http://localhost:8888/user/uploadAvatar"
                 :show-file-list="false"
@@ -83,7 +95,11 @@ export default {
         this.$message.success("修改成功！")
         sessionStorage.removeItem("token")
         sessionStorage.removeItem("userinfo")
-        location.href = "http://localhost:8080"
+        if (process.env.NODE_ENV == "production") {
+          location.href = "https://bbs.forgetive.org"
+        } else {
+          location.href = "http://localhost:8080"
+        }
       })
       this.$emit("change",false)
     },

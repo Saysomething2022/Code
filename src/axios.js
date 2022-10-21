@@ -43,7 +43,11 @@ axios.interceptors.response.use(response => {
           sessionStorage.removeItem("userinfo")
           sessionStorage.removeItem("token")
           console.log(Window)
-          window.location.href="http://localhost:8080"
+          if (process.env.NODE_ENV == "production") {
+            window.location.href="https://bbs.forgetive.org"
+          } else {
+            window.location.href="http://localhost:8080"
+          }
           return Promise.reject(error)
       }
     console.log("请求错误！！")
