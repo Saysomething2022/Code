@@ -6,7 +6,11 @@ var websocketServer = {
         //建立websocket链接
         if ('WebSocket' in window) {
             console.log("准备建立socket链接")
-            websocket = new WebSocket('ws://localhost:9090/websocketServer/' + uid)
+            if (process.env.NODE_ENV == "production") {
+                websocket = new WebSocket('ws://forgetive.org:32486/websocketServer/' + uid)
+            } else {
+                websocket = new WebSocket('ws://localhost:9090/websocketServer/' + uid)
+            }
             this.initWebSocket()
         } else {
             console.log("失败l")
