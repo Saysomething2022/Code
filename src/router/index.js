@@ -8,7 +8,6 @@ import Person from "@/components/Person"
 import PersonArticle from "@/components/PersonArticle"
 import NoticeList from  "@/components/NoticeList"
 import MyCollectionList from  "@/components/MyCollectionList"
-import BookShop from  "@/components/BookShop"
 import Personal from "@/components/admin/Personal"
 import PersonChange from "@/components/PersonChange"
 import ArticleManger from "@/components/admin/ArticleManger"
@@ -68,11 +67,6 @@ const routes = [
             },
           ],
     redirect: "/personArticle"
-  },
-  {
-    path: "/bookshop",
-    name:"BookShop",
-    component: BookShop
   },
   {
     path: "/admin",
