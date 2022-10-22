@@ -1,12 +1,9 @@
 <template>
   <div>
     <div>
-      <el-link :underline="false" style="float: left;width: 400px">
+      <el-link :underline="false" class="logo" @click="article">
         <img src="../assets/logo.png" class="img1">
       </el-link>
-      <el-link :underline="false" :type="$userStore.hover == 0? 'primary':'default'" @click="article" style="margin-left: -1000px;margin-top: 10px">文章</el-link>
-      <el-link :underline="false" :type="$userStore.hover == 1? 'primary':'default'" @click="answer" style="margin-left: 10px;margin-top: 10px">QA</el-link>
-<!--      <el-link :underline="false" :type="$userStore.hover == 2? 'primary':'default'" @click="book" style="margin-left: 10px;margin-top: 10px">平台合作书籍</el-link>-->
     </div>
 
     <div class="demo-input-size">
@@ -15,6 +12,7 @@
           class="w-50 m-2"
           size="large"
           placeholder="请输入关键字"
+          style="margin-top: 3%;"
           @keydown.enter="search"
       >
         <template #suffix>
@@ -22,13 +20,10 @@
         </template>
       </el-input>
     </div>
-    <div  class="demo-button-size">
+    <div class="demo-button-size">
         <el-button  style="background-color: #626aef;color: white;width: 100px;height: 32px"  @click="post">
         <el-icon color="white"><EditPen /></el-icon>写文章
       </el-button>
-<!--      <el-button type="primary" >-->
-<!--        <el-icon><EditPen /> </el-icon>提问题-->
-<!--      </el-button>-->
       <el-link style="margin-left: 20px" v-if="haslogin != null" href="/noticeList">
         <el-badge :is-dot="$userStore.messageNumber != 0"><el-icon ><Bell /></el-icon></el-badge>
       </el-link>
@@ -41,7 +36,6 @@
         <el-avatar :size="45" :src="haslogin.avatar">
         </el-avatar>
       </div>
-<!--      <el-icon class="el-icon&#45;&#45;right"><caret-bottom /></el-icon>-->
     </span>
         <template #dropdown>
           <el-dropdown-menu>
@@ -57,9 +51,10 @@
           </el-dropdown-menu>
         </template>
       </el-dropdown>
+
       <!--      用户登录弹出框-->
-      <el-dialog v-model="dialogFormVisible" title="用户登录" @close="close1()">
-        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+      <el-dialog v-model="dialogFormVisible" width="50%" title="用户登录" @close="close1()">
+        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="20%" class="demo-ruleForm">
           <el-form-item label="邮箱账号" prop="email">
               <el-input v-model="ruleForm.email">
                 <template #prefix>
@@ -141,6 +136,7 @@ import {UserStore} from "@/store";
 import {storeToRefs} from 'pinia'
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Header",
   data(){
     var validatorEmail = (rule,value,callback) => {
@@ -326,7 +322,7 @@ export default {
         headers:{
           "Authorization": sessionStorage.getItem("token")
         }
-      }).then(response => {
+      }).then(() => {
         this.$userStore.setUserInfo(null)
         this.$userStore.setToken(null)
         this.$message.success("退出成功")
@@ -481,24 +477,44 @@ export default {
 <style scoped>
 
 .img1{
-  width: 200px;
-  margin-left: 180px;
+  width: 50%;
+  height: 50%;
 }
 
 .el-link {
   margin-right: 20px;
   font-size: 20px;
-  /*margin-left: 20px;*/
 }
 .demo-input-size{
   width: 300px;
   margin-left: 840px;
-  margin-top: -30px;
   position:relative;
 }
 .demo-button-size{
   margin-left: 1050px;
   margin-top: -37px;
   position:relative;
+}
+.logo {
+  float: left;
+  width: 400px;
+}
+@media screen and (max-width: 1080px) {
+  .img1 {
+    display: none;
+  }
+  .demo-input-size {
+    width: 40%;
+    height: 60px;
+    margin-left: 10%;
+    margin-top: 0;
+    float: left;
+  }
+    .demo-button-size {
+    width: 40%;
+    margin-left: 0;
+    margin-top: 1.5%;
+    float: right;
+  }
 }
 </style>

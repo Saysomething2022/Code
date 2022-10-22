@@ -5,7 +5,7 @@
         <Header/>
       </el-header>
       <el-container>
-        <el-container>
+        <el-container class="articlaD">
         <el-main>
           <h1 style="font-size: 40px">{{articleDetail.title}}</h1>
           <el-space :spacer="spacer">
@@ -48,7 +48,7 @@
            <el-divider/>
          </el-footer>
         </el-container>
-            <el-container style="margin-top: 15px;margin-right:100px">
+          <el-container class="AC" style="margin-top: 15px;margin-right:100px">
               <el-header class="header3">
                 <h1>关于作者</h1>
                 <el-divider></el-divider>
@@ -81,9 +81,6 @@
                   </div>
                 </div>
               </el-aside>
-<!--              <el-footer class="header3" style="margin-top: 10px">-->
-<!--                hhh-->
-<!--              </el-footer>-->
             </el-container>
       </el-container>
     </el-container>
@@ -380,7 +377,7 @@ export default {
 }
 .footer{
   position: absolute;
-  margin-left: 750px;
+  margin-left: 70%;
   margin-bottom: 0px;
 }
 .footer1{
@@ -411,5 +408,19 @@ export default {
 }
 .content:hover{
   color: #409EFF;
+}
+@media screen and (max-width: 1080px) {
+  .AC {
+    display: none;
+  }
+  .articlaD {
+    height: 100%;
+  }
+  .common-layout .el-main, .footer1 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 4%;
+  }
 }
 </style>
