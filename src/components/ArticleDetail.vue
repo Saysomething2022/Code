@@ -13,7 +13,7 @@
                 :src="articleDetail.avatar"
             ></el-avatar>
             <span>{{ articleDetail.nickName?articleDetail.nickName:articleDetail.email }}</span>
-            <span>发布于 {{ articleDetail.createTime }}</span>
+            <span class="timeM">发布于 {{ articleDetail.createTime }}</span>
             <router-link :to="{name:'AddArticle',params:{
               id:articleDetail.id
             }}" style="text-decoration: none">
@@ -42,7 +42,7 @@
                placeholder="输入评论..."
                style="margin-top: 10px"
            />
-           <el-button type="primary" style="margin-left: 800px;margin-top: 25px" @click="addComment(articleDetail.id)">提交评论</el-button>
+           <el-button id="submit" type="primary" style="margin-left: 800px;margin-top: 25px" @click="addComment(articleDetail.id)">提交评论</el-button>
            <el-divider/>
            <Comment :comments="comments" @changeComments="changeComments"></Comment>
            <el-divider/>
@@ -347,11 +347,12 @@ export default {
   margin-left: 160px;
   margin-right: 15px;
   margin-top: 10px;
+  margin-bottom: 10px;
   text-align: left;
   width: 940px;
   display: inline-block;
   height: 100%;
-
+  padding-bottom: 40px;
 }
 ::-webkit-scrollbar {
   display: none; /* Chrome Safari */}
@@ -410,17 +411,27 @@ export default {
   color: #409EFF;
 }
 @media screen and (max-width: 1080px) {
-  .AC {
+  .AC, .timeM {
     display: none;
   }
   .articlaD {
     height: 100%;
   }
   .common-layout .el-main, .footer1 {
-    width: 90%;
+    width: 95%;
     margin-left: 5%;
     margin-right: 5%;
-    padding: 4%;
+    padding: 5%;
+  }
+   .common-layout .el-main {
+    padding-bottom: 15%;
+   }
+  #submit {
+    margin-left: 65% !important;
+    margin-top: 25px;
+  }
+  .footer {
+    margin-left: 40%;
   }
 }
 </style>

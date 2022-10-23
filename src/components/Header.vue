@@ -12,7 +12,8 @@
           class="w-50 m-2"
           size="large"
           placeholder="请输入关键字"
-          style="margin-top: 3%;"
+          id="search"
+          style="margin-top: 3%"
           @keydown.enter="search"
       >
         <template #suffix>
@@ -21,13 +22,13 @@
       </el-input>
     </div>
     <div class="demo-button-size">
-        <el-button  style="background-color: #626aef;color: white;width: 100px;height: 32px"  @click="post">
+        <el-button class="write"  @click="post">
         <el-icon color="white"><EditPen /></el-icon>写文章
       </el-button>
       <el-link style="margin-left: 20px" v-if="haslogin != null" href="/noticeList">
         <el-badge :is-dot="$userStore.messageNumber != 0"><el-icon ><Bell /></el-icon></el-badge>
       </el-link>
-      <el-button type="default" v-if="haslogin == null" @click="tologin">
+      <el-button class="loginBtn" type="default" v-if="haslogin == null" @click="tologin">
          登录
       </el-button>
    <el-dropdown trigger="hover" v-if="haslogin != null" style="margin-left: 10px;margin-top: -7px">
@@ -53,8 +54,8 @@
       </el-dropdown>
 
       <!--      用户登录弹出框-->
-      <el-dialog v-model="dialogFormVisible" width="50%" title="用户登录" @close="close1()">
-        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="20%" class="demo-ruleForm">
+      <el-dialog v-model="dialogFormVisible" title="用户登录" @close="close1()" :width="dialogWidth">
+        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
           <el-form-item label="邮箱账号" prop="email">
               <el-input v-model="ruleForm.email">
                 <template #prefix>
@@ -75,8 +76,8 @@
                 <el-icon class="el-input__icon"><SetUp /></el-icon>
               </template>
             </el-input>
-            <el-button :disabled="canClick" @click="CountDown" style="margin-left: 10px">{{ getcode }}</el-button>
-            <span style="margin-left: 55px;" @click="toregister">还没有账号？点击去注册</span>
+            <el-button :disabled="canClick" @click="CountDown" style="margin-left: 10px" class="codeM">{{ getcode }}</el-button>
+            <span class="reBtn" style="margin-left: 55px;" @click="toregister">还没有账号？<el-link type="primary" style="margin-right: 2px;">点击</el-link>去注册</span>
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
@@ -85,7 +86,7 @@
         </div>
       </el-dialog>
       <!--      用户注册弹出框-->
-      <el-dialog v-model="dialogFormVisible2" title="用户注册" @close="close1()">
+      <el-dialog v-model="dialogFormVisible2" title="用户注册" @close="close1()" :width="dialogWidth">
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
           <el-form-item label="邮箱账号" prop="email">
             <el-input v-model="ruleForm.email">
@@ -193,6 +194,7 @@ export default {
       haslogin: this.userinfo(),
       dialogFormVisible:false,
       dialogFormVisible2:false,
+      dialogWidth: 0,
       formLabelWidth: '120px',
       ruleForm: {
         email: '',
@@ -217,8 +219,32 @@ export default {
       }
     }
   },
+  created() {
+			//初始化调用
+		this.setDialogWidth()
+	},
+	mounted() {
+			//监听窗口宽度
+	window.onresize = () => {
+		return (() => {
+		this.setDialogWidth()
+		})()
+	}
+ },
   props:['ChangeArticleList'],
   methods:{
+    setDialogWidth() {
+	//console.log(document.body.clientWidth)
+		var val = document.body.clientWidth
+	const def = 1080 //宽度最小为800,可修改
+	//窗口宽度小于默认宽度时，将弹框看度设置为50%,可修改
+	if (val > def) {
+		this.dialogWidth = '50%'
+	} else {
+		//窗口宽度大于默认宽度1200时，将弹框设置为400宽度,可修改
+	this.dialogWidth =  '90%'
+	}
+	},
     userinfo(){
       const userStore = UserStore()
       const { userinfo } = storeToRefs(userStore);
@@ -292,11 +318,6 @@ export default {
         this.$emit("ChangeArticleList",response.data.data.records)
       })
     },
-    book(){
-      this.$userStore.hover=2
-      this.$router.push("/bookshop")
-
-    },
     toadmin(){
       this.$router.push({
         name:"AdminIndex"
@@ -346,7 +367,7 @@ export default {
                 this.$message({
                   type:"success",
                   duration: 1500,
-                  message:'登录成功，欢迎来到No404开发者论坛'
+                  message:'登录成功，欢迎来到有言以对论坛'
                 })
                 //将返回的用户信息和jwt存储在pinia的state中给组件共享
                 this.$userStore.setUserInfo(response.data.data)
@@ -469,8 +490,7 @@ export default {
   beforeRouteLeave(){
     console.log("离开路由----》")
     websocketServer.closeWebSocket()
-  }
-
+  },
 }
 </script>
 
@@ -499,9 +519,19 @@ export default {
   float: left;
   width: 400px;
 }
+.write {
+  background-color: #626aef;
+  color: white;
+  width: 100px;
+  height: 32px
+}
+
 @media screen and (max-width: 1080px) {
-  .img1 {
+  .img1, .write{
     display: none;
+  }
+  .loginBtn, #search {
+    margin-top: 5%
   }
   .demo-input-size {
     width: 40%;
@@ -510,11 +540,22 @@ export default {
     margin-top: 0;
     float: left;
   }
-    .demo-button-size {
+  .demo-button-size {
     width: 40%;
     margin-left: 0;
     margin-top: 1.5%;
     float: right;
+  }
+  .el-dialog {
+    width: 90% !important;
+    min-width: 350px !important; 
+  }
+  .codeM {
+    margin-left: 0 !important;
+  }
+  .reBtn {
+    margin-left: 0% !important;
+    margin-top: 5% !important;
   }
 }
 </style>

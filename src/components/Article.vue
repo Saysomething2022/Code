@@ -9,9 +9,10 @@
           <el-space :spacer="spacer">
             <el-avatar
                 :src="articleObj1.avatar"
+                class="avatarM"
             ></el-avatar>
             <span>{{articleObj1.nickName?articleObj1.nickName:articleObj1.email}}</span>
-            <span>发布于 {{ articleObj1.createTime }}</span>
+            <span class="timeM">发布于 {{ articleObj1.createTime }}</span>
             <el-tag v-if="articleObj1.type != null">{{ articleObj1.type }}</el-tag>
           </el-space>
         </div>
@@ -132,5 +133,13 @@ export default {
 .icon{
   margin-top: 50px;
   float: left;
+}
+@media screen and (max-width: 1080px) {
+  .card-header {
+    height: 10%;
+  }
+  .avatarM, .timeM {
+    display: none;
+  }
 }
 </style>
