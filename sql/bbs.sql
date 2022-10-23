@@ -135,11 +135,10 @@ CREATE TABLE `bbs_article_type`  (
 -- ----------------------------
 -- Records of bbs_article_type
 -- ----------------------------
-INSERT INTO `bbs_article_type` VALUES (1, '后端', 0, 0, '028a7457e1436360a6c405be3149da21', '0', '0');
-INSERT INTO `bbs_article_type` VALUES (2, '推荐', 1, 0, '028a7457e1436360a6c405be3149da21', '0', '0');
-INSERT INTO `bbs_article_type` VALUES (3, '前端', 0, 0, '028a7457e1436360a6c405be3149da21', '0', '0');
-INSERT INTO `bbs_article_type` VALUES (4, '产品', 0, 0, '028a7457e1436360a6c405be3149da21', '0', '0');
-INSERT INTO `bbs_article_type` VALUES (5, '测试', 0, 0, '028a7457e1436360a6c405be3149da21', '0', '0');
+INSERT INTO `bbs_article_type` VALUES (1, '树洞', 0, 0, '028a7457e1436360a6c405be3149da21', '0', '0');
+INSERT INTO `bbs_article_type` VALUES (2, '吐槽', 0, 0, '028a7457e1436360a6c405be3149da21', '0', '0');
+INSERT INTO `bbs_article_type` VALUES (3, '求助', 0, 0, '028a7457e1436360a6c405be3149da21', '0', '0');
+INSERT INTO `bbs_article_type` VALUES (4, '交友', 0, 0, '028a7457e1436360a6c405be3149da21', '0', '0');
 
 -- ----------------------------
 -- Table structure for bbs_child_comment
