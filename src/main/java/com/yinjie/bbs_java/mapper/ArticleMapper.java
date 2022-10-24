@@ -14,6 +14,9 @@ import java.util.List;
  * <p>
  *  Mapper 接口
  * </p>
+ *
+ * @author Jack
+ * @since 2022-03-09 15:57:10
  */
 @Mapper
 public interface ArticleMapper extends BaseMapper<Article> {

@@ -10,6 +10,9 @@ import java.util.List;
  * <p>
  *  Mapper 接口
  * </p>
+ *
+ * @author Jack
+ * @since 2022-04-25 11:10:37
  */
 @Mapper
 public interface MessageMapper extends BaseMapper<Message> {

@@ -8,6 +8,9 @@ import org.apache.ibatis.annotations.Mapper;
  * <p>
  *  Mapper 接口
  * </p>
+ *
+ * @author Jack
+ * @since 2022-03-15 11:19:01
  */
 @Mapper
 public interface ParCommentMapper extends BaseMapper<ParComment> {
