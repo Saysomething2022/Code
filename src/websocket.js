@@ -7,7 +7,7 @@ var websocketServer = {
         if ('WebSocket' in window) {
             console.log("准备建立socket链接")
             if (process.env.NODE_ENV == "production") {
-                websocket = new WebSocket('ws://bbs-backend.forgetive.org/websocketServer/' + uid)
+                websocket = new WebSocket('wss://bbs-backend.forgetive.org/websocketServer/' + uid)
             } else {
                 websocket = new WebSocket('ws://localhost:9090/websocketServer/' + uid)
             }
