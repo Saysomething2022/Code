@@ -13,13 +13,8 @@ import lombok.ToString;
 import javax.validation.constraints.NotBlank;
 
 /**
- * <p>
- *
- * </p>
- *
- * @author Jack
- * @since 2022-04-12 22:57:16
- */
+author:flt-Rottenklutz
+**/
 @Getter
 @Setter
 @TableName("bbs_notice")

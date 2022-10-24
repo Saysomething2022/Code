@@ -11,13 +11,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <p>
- *
- * </p>
- *
- * @author Jack
- * @since 2022-04-13 21:36:36
- */
+author:flt-Rottenklutz
+**/
 @Getter
 @Setter
 @TableName("bbs_system_log")

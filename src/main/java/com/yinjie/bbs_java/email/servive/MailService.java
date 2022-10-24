@@ -1,3 +1,6 @@
+/**
+author:flt-Rottenklutz
+**/
 package com.yinjie.bbs_java.email.servive;
 
 import lombok.extern.slf4j.Slf4j;

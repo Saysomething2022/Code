@@ -2,6 +2,10 @@ package com.yinjie.bbs_java.enum1;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
 
+/**
+author:flt-Rottenklutz
+**/
+
 public enum StatusEnum {
 
     NORMAL(0,"已审核"),

@@ -12,13 +12,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * <p>
- *
- * </p>
- *
- * @author Jack
- * @since 2022-04-25 11:10:37
- */
+author:flt-Rottenklutz
+**/
+
 @Getter
 @Setter
 @TableName("bbs_message")

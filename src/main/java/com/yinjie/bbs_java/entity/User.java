@@ -14,13 +14,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 /**
- * <p>
- *
- * </p>
- *
- * @author Jack
- * @since 2022-03-07 10:31:02
- */
+author:flt-Rottenklutz
+**/
 @Getter
 @Setter
 @TableName("bbs_user")

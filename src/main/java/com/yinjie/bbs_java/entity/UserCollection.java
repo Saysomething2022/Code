@@ -12,13 +12,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author Jack
- * @since 2022-03-18 10:23:25
- */
+author:flt-Rottenklutz
+**/
 @Getter
 @Setter
 @TableName("bbs_user_collection")

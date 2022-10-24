@@ -1,21 +1,14 @@
+/**
+author:flt-Rottenklutz
+**/
 package com.yinjie.bbs_java.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
-
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import lombok.*;
-
 import javax.validation.constraints.NotBlank;
 
-/**
- * <p>
- *
- * </p>
- *
- * @author Jack
- * @since 2022-03-09 15:57:10
- */
 @Getter
 @Setter
 @NoArgsConstructor

@@ -1,5 +1,9 @@
 package com.yinjie.bbs_java.entity;
 
+/**
+author:flt-Rottenklutz
+**/
+
 import com.baomidou.mybatisplus.annotation.*;
 
 import java.io.Serializable;
@@ -8,14 +12,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * <p>
- *
- * </p>
- *
- * @author Jack
- * @since 2022-03-10 11:33:38
- */
 @Getter
 @Setter
 @TableName("bbs_article_type")
