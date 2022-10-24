@@ -5,7 +5,7 @@
         <Header/>
       </el-header>
       <el-container>
-        <el-container>
+        <el-container class="articlaD">
         <el-main>
           <h1 style="font-size: 40px">{{articleDetail.title}}</h1>
           <el-space :spacer="spacer">
@@ -13,7 +13,7 @@
                 :src="articleDetail.avatar"
             ></el-avatar>
             <span>{{ articleDetail.nickName?articleDetail.nickName:articleDetail.email }}</span>
-            <span>发布于 {{ articleDetail.createTime }}</span>
+            <span class="timeM">发布于 {{ articleDetail.createTime }}</span>
             <router-link :to="{name:'AddArticle',params:{
               id:articleDetail.id
             }}" style="text-decoration: none">
@@ -42,13 +42,13 @@
                placeholder="输入评论..."
                style="margin-top: 10px"
            />
-           <el-button type="primary" style="margin-left: 800px;margin-top: 25px" @click="addComment(articleDetail.id)">提交评论</el-button>
+           <el-button id="submit" type="primary" style="margin-left: 800px;margin-top: 25px" @click="addComment(articleDetail.id)">提交评论</el-button>
            <el-divider/>
            <Comment :comments="comments" @changeComments="changeComments"></Comment>
            <el-divider/>
          </el-footer>
         </el-container>
-            <el-container style="margin-top: 15px;margin-right:100px">
+          <el-container class="AC" style="margin-top: 15px;margin-right:100px">
               <el-header class="header3">
                 <h1>关于作者</h1>
                 <el-divider></el-divider>
@@ -81,9 +81,6 @@
                   </div>
                 </div>
               </el-aside>
-<!--              <el-footer class="header3" style="margin-top: 10px">-->
-<!--                hhh-->
-<!--              </el-footer>-->
             </el-container>
       </el-container>
     </el-container>
@@ -369,11 +366,12 @@ export default {
   margin-left: 160px;
   margin-right: 15px;
   margin-top: 10px;
+  margin-bottom: 10px;
   text-align: left;
   width: 940px;
   display: inline-block;
   height: 100%;
-
+  padding-bottom: 40px;
 }
 ::-webkit-scrollbar {
   display: none; /* Chrome Safari */}
@@ -399,7 +397,7 @@ export default {
 }
 .footer{
   position: absolute;
-  margin-left: 750px;
+  margin-left: 70%;
   margin-bottom: 0px;
 }
 .footer1{
@@ -430,5 +428,29 @@ export default {
 }
 .content:hover{
   color: #409EFF;
+}
+@media screen and (max-width: 1080px) {
+  .AC, .timeM {
+    display: none;
+  }
+  .articlaD {
+    height: 100%;
+  }
+  .common-layout .el-main, .footer1 {
+    width: 95%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 5%;
+  }
+   .common-layout .el-main {
+    padding-bottom: 15%;
+   }
+  #submit {
+    margin-left: 65% !important;
+    margin-top: 25px;
+  }
+  .footer {
+    margin-left: 40%;
+  }
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
-  <div><el-empty v-if="articleList.length == 0" description="没有内容"></el-empty>
+  <div>
+    <el-empty v-if="articleList.length == 0" description="没有内容"></el-empty>
     <ul v-infinite-scroll="load" infinite-scroll-distance="1" :infinite-scroll-disabled="isbottom" infinite-scroll-immediate="false"  class="infinite-list" style="overflow: auto" >
       <li v-for="article in articleList" :key="article.id" class="infinite-list-item">
         <Article
@@ -59,7 +60,7 @@ export default {
 
 <style scoped>
 .infinite-list {
-  height: 700px;
+  height: 100%;
   padding: 0;
   margin: 0;
   list-style: none;

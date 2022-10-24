@@ -5,11 +5,11 @@
           <Header @ChangeArticleList="ChangeArticleList"></Header>
         </el-header>
         <el-container>
-          <el-main style="width: 1000px;margin-top: 15px">
+          <el-main class="main-articles">
             <Nav :ChangeArticleList="ChangeArticleList"></Nav>
             <ArticleList :articleList="articleList" @ChangeArticleList="ChangeArticleList"></ArticleList>
           </el-main>
-          <el-container style="margin-top: 15px;margin-right:100px">
+          <el-container class="SN" style="margin-top: 15px;margin-right:10%">
             <el-header class="header3" v-if="$userStore.userinfo != null">
               <h2>我的成就</h2>
               <el-divider></el-divider>
@@ -29,7 +29,7 @@
               </div>
 
             </el-header>
-            <el-aside>
+            <el-aside class="notice">
               <h2 style="margin-left: 10px">公告</h2>
               <el-divider>
               </el-divider>
@@ -137,12 +137,13 @@ export default {
   color: var(--el-text-color-primary);
   text-align: center;
   line-height: 500px;
-  margin-left: 160px;
+  width: 70%;
+  margin-left: 10%;
   margin-right: 15px;
+  margin-top: 15px;
 }
 
 .common-layout > .el-container {
-  /*margin-top: -40px;*/
   margin-bottom: 20px;
 }
 .header3{
@@ -172,5 +173,25 @@ export default {
 .content:hover{
   color: #409EFF;
 }
-
+.el-main .main-articles {
+  width: 100%; 
+  margin-top: 15px; 
+  margin-left: 80px;
+}
+@media screen and (max-width: 1080px) {
+  el-header.header1{
+    width: 100%;
+  }
+  .SN {
+    display: none;
+  }
+  .common-layout .el-main {
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  .el-container {
+    height: 100%;
+  }
+}
 </style>
