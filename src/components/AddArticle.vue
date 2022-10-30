@@ -26,7 +26,7 @@
             <span style="margin-left: 15px">文章大类：</span>
             <el-select v-model="ruleForm.category" filterable placeholder="Select">
               <el-option label="文章" value="article"></el-option>
-              <el-option label="问答" value="answer"></el-option>
+              <!-- <el-option label="问答" value="answer"></el-option> -->
             </el-select>
           </el-form-item>
 
@@ -150,5 +150,13 @@ export default {
 .common-layout .el-footer {
   line-height: 60px;
   background-color: #ffffff;
+}
+@media screen and (max-width: 1080px) {
+  .common-layout .el-main {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 1px;
+    padding-right: 10px;
+  }
 }
 </style>

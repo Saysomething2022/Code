@@ -6,7 +6,7 @@
       </el-header>
       <el-container>
         <el-header class="header2">
-          <el-card :body-style="{ padding: '0px' }" style="width: 1200px;margin-left: -20px">
+          <el-card :body-style="{ padding: '0px' }" class="cardM">
             <img
                 src="img/person.jpg"
                 class="image"
@@ -14,7 +14,7 @@
           </el-card>
           <div style="position: relative">
             <img class="userAvatar" :src="$userStore.userinfo.avatar" />
-              <div style="margin-top: -80px;margin-left: 210px;width: 650px">
+              <div class="informationPC" style="margin-top: -80px;margin-left: 210px;width: 650px">
                 <div style="float:left;">
                   <span class="username"><b>{{$userStore.userinfo.nickName?$userStore.userinfo.nickName:$userStore.userinfo.email}}</b></span>
                 </div>
@@ -32,16 +32,37 @@
                 </div>
                 <PersonChange @change="change" :dialogFormVisible="dialogFormVisible"></PersonChange>
               </div>
+
           </div>
 
+
         </el-header>
+        <div class="informationM">
+                <div style="float:left;">
+                  <span class="username"><b style="margin-left: 20px">{{$userStore.userinfo.nickName?$userStore.userinfo.nickName:$userStore.userinfo.email}}</b></span>
+                </div>
+                <div style="margin-left: 80px">
+                  <span style="float:left"><b>加入时间</b>：{{$userStore.userinfo.createTime }}</span>
+                  <br>
+                  <span style="float:left"><b>个人简介:</b>{{$userStore.userinfo.describe?$userStore.userinfo.describe:'这个太懒了~'}}</span>
+                  <br>
+                  <br>
+                  <span style="float:left"><b>身份</b>：{{$userStore.userinfo.role}}</span>
+                </div>
+                <div style="width: auto;margin-left: 150px;">
+                  <el-button  style="background-color: #626aef;color: white;width: 100px;height: 32px"  @click="toChange">
+                    <el-icon color="white"><EditPen /></el-icon>编辑
+                  </el-button>
+                </div>
+                <PersonChange @change="change" :dialogFormVisible="dialogFormVisible"></PersonChange>
+              </div>
         <el-container class="main">
           <el-main  style="height: auto">
             <PersonHeader/>
             <router-view/>
           </el-main>
-          <el-container style="display:flex;flex-direction: column;">
-            <el-aside>
+          <el-container class="noticerPC">
+            <el-aside >
               <h2 style="margin-left: 10px">Ta关注的人（{{myfocus.length}}）</h2>
               <el-divider></el-divider>
               <div>
@@ -57,7 +78,7 @@
               </div>
 
             </el-aside>
-            <el-aside>
+            <el-aside >
               <h2 style="margin-left: 10px">关注Ta的人（{{myfocused.length}}）</h2>
               <el-divider></el-divider>
               <div>
@@ -74,6 +95,39 @@
             </el-aside>
           </el-container>
         </el-container>
+        <el-container class="noticerM">
+            <el-aside >
+              <h2 style="margin-left: 10px">Ta关注的人（{{myfocus.length}}）</h2>
+              <el-divider></el-divider>
+              <div>
+                <div v-for="myfocu in myfocus" :key="myfocu.id" style="margin-left: 10px;text-align: center;float: left;width: 100px">
+                  <div>
+                    <el-avatar :size="60" :src="myfocu.avatar">
+                    </el-avatar>
+                  </div>
+                  <div style="margin-top: 20px;width: auto">
+                    <span style="font-size: 1px">{{ myfocu.nickName?myfocu.nickName:myfocu.email}}</span>
+                  </div>
+                </div>
+              </div>
+
+            </el-aside>
+            <el-aside >
+              <h2 style="margin-left: 10px">关注Ta的人（{{myfocused.length}}）</h2>
+              <el-divider></el-divider>
+              <div>
+                <div v-for="myfocu in myfocused" :key="myfocu.id" style="margin-left: 10px;text-align: center;float: left;width: 100px">
+                  <div>
+                    <el-avatar :size="60" :src="myfocu.avatar">
+                    </el-avatar>
+                  </div>
+                  <div style="margin-top: 20px;width: auto">
+                    <span style="font-size: 1px">{{ myfocu.nickName?myfocu.nickName:myfocu.email }}</span>
+                  </div>
+                </div>
+              </div>
+            </el-aside>
+          </el-container>
       </el-container>
     </el-container>
   </div>
@@ -141,6 +195,10 @@ export default {
   border-bottom: 1px solid #e9eef3;
   margin-left: -50px;
 }
+.cardM {
+  width: 1200px;
+  margin-left: -20px
+}
 .image{
   width: 100%;
   height: 200px;
@@ -188,9 +246,75 @@ font-size: 15px;
   height: 700px;
   width: 900px;
 }
+.noticerPC, .noticerM {
+  display:flex;
+  flex-direction: column;
+}
+/* .common-layout > .el-container {
 
-.common-layout > .el-container {
-  /*margin-top: -40px;*/
+  display: flex;
   margin-bottom: 20px;
+} */
+.informationM {
+  display: none;
+}
+@media screen and (min-width: 1080px) {
+    .noticerM {
+      display: none;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .informationM {
+    display: block;
+    margin-top: 20px;
+    margin-left: 0px;
+    width: 365px
+  }
+  .cardM {
+    width: 365px;
+  }
+  .common-layout .noticerM {
+    width: 365px;
+  }
+  .informationPC, .noticerPC {
+    display: none;
+  }
+  /* .common-layout > .el-container {
+    display: inline;
+  } */
+  .common-layout .header2 {
+    width: 365px;
+  margin-left: 0px;
+  margin-top: 10px;
+  height: 100px;
+  text-align: left;
+  }
+  .common-layout .el-aside {
+    width: 100%;
+  }
+  .image {
+    width: 365px;
+    height: 100px;
+  }
+  .userAvatar{
+  margin-top: -100px;
+  /*float: left;*/
+  height: 50px;
+  width: 50px;
+  }
+  .main{
+  width: 365px;
+  height: auto;
+  }
+  .common-layout .el-main {
+  background-color: #ffffff;
+  color: var(--el-text-color-primary);
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 20px;
+  text-align: left;
+  height: 100%;
+  width: 360px;
+  }
 }
 </style>

@@ -12,7 +12,6 @@
           class="w-50 m-2"
           size="large"
           placeholder="请输入关键字"
-          id="search"
           style="margin-top: 3%"
           @keydown.enter="search"
       >
@@ -25,7 +24,10 @@
         <el-button class="write"  @click="post">
         <el-icon color="white"><EditPen /></el-icon>写文章
       </el-button>
-      <el-link style="margin-left: 20px" v-if="haslogin != null" href="/noticeList">
+      <el-button class="writeM" @click="post">
+        <el-icon color="blue"><EditPen /></el-icon>
+      </el-button>
+      <el-link class="bellM" style="margin-left: 20px" v-if="haslogin != null" href="/noticeList">
         <el-badge :is-dot="$userStore.messageNumber != 0"><el-icon ><Bell /></el-icon></el-badge>
       </el-link>
       <el-button class="loginBtn" type="default" v-if="haslogin == null" @click="tologin">
@@ -45,6 +47,9 @@
             </el-dropdown-item>
             <el-dropdown-item v-if="haslogin.role == 'admin'" @click="toadmin" class="clearfix">
               后台管理
+            </el-dropdown-item>
+            <el-dropdown-item class="homeM" @click="toHomeM">
+              首页
             </el-dropdown-item>
             <el-dropdown-item class="clearfix" @click="logout()">
               退出
@@ -331,6 +336,11 @@ export default {
         }
       })
     },
+    toHomeM(){
+      this.$router.push({
+        name:'Index'
+      })
+    },
     tologin(){
       this.dialogFormVisible = true
     },
@@ -500,6 +510,10 @@ export default {
   width: 50%;
   height: 50%;
 }
+.writeM {
+  display: none;
+  float: left;
+}
 
 .el-link {
   margin-right: 20px;
@@ -525,19 +539,30 @@ export default {
   width: 100px;
   height: 32px
 }
-
-@media screen and (max-width: 1080px) {
-  .img1, .write{
+@media screen and (min-width: 1080px) {
+  .homeM {
     display: none;
   }
-  .loginBtn, #search {
+}
+@media screen and (max-width: 1080px) {
+  .img1, .write, .bellM {
+    display: none;
+  }
+  .writeM {
+    display: block;
+    margin-top: 5%
+  }
+  .loginBtn {
+    float: right;
+  }
+  .loginBtn {
     margin-top: 5%
   }
   .demo-input-size {
     width: 40%;
     height: 60px;
     margin-left: 10%;
-    margin-top: 0;
+    margin-top: 1%;
     float: left;
   }
   .demo-button-size {

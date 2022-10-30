@@ -1,6 +1,6 @@
 <template>
 <div>
-  <el-button-group style="margin-left: 650px">
+  <el-button-group class="btnM" style="">
     <el-button @click="readed">一键已读</el-button>
     <el-button @click="deleteBatch">全部清楚</el-button>
   </el-button-group>
@@ -63,5 +63,12 @@ export default {
 </script>
 
 <style scoped>
-
+.btnM {
+  margin-left: 650px
+}
+@media screen and (max-width: 1080px) {
+  .btnM {
+  margin-left: 10px
+ }
+}
 </style>

@@ -1,9 +1,9 @@
 <template>
     <div>
-      <el-dialog v-model="dialogFormVisible" title="用户信息修改" draggable @close="beforeClose">
+      <el-dialog v-model="dialogFormVisible" title="用户信息修改" draggable @close="beforeClose" :width="dialogWidth">
         <el-form :model="form">
-          <el-form-item label="头像" :label-width="formLabelWidth">
-            <el-upload
+          <el-form-item label="头像" :label-width="formLabelWidthImg">
+            <!-- <el-upload
                 v-if="process.env.NODE_ENV == 'production'"
                 class="avatar-uploader"
                 action="https://bbs-backend.forgetive.org/user/uploadAvatar"
@@ -13,9 +13,9 @@
                 :before-upload="beforeAvatarUpload">
               <img v-if="form.avatar" :src="form.avatar" class="avatar">
               <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-            </el-upload>
+            </el-upload> -->
             <el-upload
-                v-else
+                
                 class="avatar-uploader"
                 action="http://localhost:8888/user/uploadAvatar"
                 :show-file-list="false"
@@ -63,10 +63,40 @@ export default {
         password: '',
         describe:''
       },
-      formLabelWidth: '120px'
+      formLabelWidth: 0,
+      formLabelWidthImg: 0,
+      dialogWidth: 0
     }
   },
+    created() {
+			//初始化调用
+		this.setDialogWidth()
+	},
+	mounted() {
+			//监听窗口宽度
+	window.onresize = () => {
+		return (() => {
+		this.setDialogWidth()
+		})()
+	}
+ },
   methods:{
+  setDialogWidth() {
+	console.log("width" + document.body.clientWidth)
+		var val = document.body.clientWidth
+	const def = 1080 //宽度最小为800,可修改
+	//窗口宽度小于默认宽度时，将弹框看度设置为50%,可修改
+	if (val > def) {
+		this.dialogWidth = '50%'
+    this.formLabelWidth = '120px'
+    this.formLabelWidthImg = '120px'
+	} else {
+		//窗口宽度大于默认宽度1200时，将弹框设置为400宽度,可修改
+	this.dialogWidth =  '350px'
+  this.formLabelWidth = '50px'
+  this.formLabelWidthImg = '50px'
+	}
+	},
     handleAvatarSuccess(res, file) {
         console.log(res)
       this.form.avatar = res.data
@@ -142,4 +172,5 @@ export default {
   height: 178px;
   display: block;
 }
+
 </style>

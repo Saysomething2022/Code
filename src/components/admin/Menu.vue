@@ -6,9 +6,10 @@
         :collapse="isCollapse"
         @open="handleOpen"
         @close="handleClose"
+
     >
       <el-menu-item index="1">
-        <template #title><b style="font-size: 20px">No404后台管理</b></template>
+        <template #title><b style="font-size: 15px">有言以队后台管理</b></template>
       </el-menu-item>
       <router-link to="/personal" class="menu">
         <el-menu-item index="2">
@@ -61,12 +62,12 @@
             <template #title>系统日志</template>
           </el-menu-item>
         </router-link>
-        <router-link to="/Api" class="menu">
+        <!-- <router-link to="/Api" class="menu">
           <el-menu-item index="8">
             <el-icon><setting /></el-icon>
             <template #title>Api</template>
           </el-menu-item>
-        </router-link>
+        </router-link> -->
 
     </el-menu>
   </div>
@@ -78,6 +79,7 @@ export default {
   name: "Menu",
   data() {
     return {
+      modeM: "vertical"
     };
   },
   props:['isCollapse'],
@@ -111,5 +113,10 @@ export default {
   min-height: 400px;
   border-right-width: 0;
   overflow-x: hidden;
+}
+@media screen and (max-width: 1080px) {
+  .el-menu-vertical-demo {
+    modeM: "horizontal";
+  }
 }
 </style>

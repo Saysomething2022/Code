@@ -4,10 +4,11 @@
     <el-avatar v-if="notice1.mesType == 0" shape="square" :size="50" :src="notice1.avatar"></el-avatar>
     <el-avatar v-if="notice1.mesType == 1" shape="square" :size="50" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
   </router-link>
-  <div style="margin-left: 6px;margin-top:-17px;position: relative;width: 600px;text-align: left">
+  <div style="margin-left: 6px;margin-top:20px;position: relative;width: 600px;text-align: left">
     <span>
       <b v-if="notice1.mesType == 0">{{notice1.email}}</b>
       <b v-if="notice1.mesType == 1">管理员</b>
+      <br>
       <b style="color: cornflowerblue">{{ notice1.content }}</b>
     </span>
     <p style="margin-top: -25px;margin-left:-2px;position:absolute;font-size: 13px"><el-icon><watch /></el-icon>{{notice1.createTime}}</p>
@@ -68,6 +69,10 @@ export default {
   justify-content: left;
   display: flex;
   align-items: center;
+  
+    margin-top: 30px;
+    margin-bottom: 30px;
+
 }
 .scrollbar-demo-item:hover{
   background: var(--el-color-primary-light-9);
