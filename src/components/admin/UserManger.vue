@@ -282,7 +282,7 @@ export default {
     upsearch() {
 
     },
-    //增加文章类型
+    //增加帖子类型
     resetForm(formName) {
       this.$refs[formName].resetFields();
     }

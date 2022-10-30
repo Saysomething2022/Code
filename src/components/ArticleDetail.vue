@@ -191,7 +191,26 @@ export default {
       })
     },
     check(){
-      this.good = !this.good
+      this.axios.get("/article/approve",{
+        headers:{
+          "Authorization": sessionStorage.getItem("token")
+        },
+        params:{
+          id:id,
+          good:!this.good
+        }
+      }).then(response => {
+        console.log(response)
+        if (this.good == false){
+          this.$message.success('点赞成功')
+          this.good = true
+          this.articleObj1.approves = this.articleObj1.approves + 1
+        }else {
+          this.$message.warning('取消点赞')
+          this.articleObj1.approves = this.articleObj1.approves - 1
+          this.good = false
+        }
+      })
     },
     focus(focusedId){
       console.log("=================")
