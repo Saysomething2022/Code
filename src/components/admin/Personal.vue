@@ -72,9 +72,7 @@ export default {
   name: "Personal",
   data() {
     return {
-      activities: [
-       
-      ],
+     
       userinfo: {
       },
       config: {
