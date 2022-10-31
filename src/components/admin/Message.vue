@@ -42,12 +42,12 @@
       <el-main class="nopadding">
         <el-table ref="table" :data="messageList" height="400" @selection-change="selectChange">
           <el-table-column type="selection" width="50"></el-table-column>
-          <el-table-column label="编号" fixed prop="id" width="100"></el-table-column>
-          <el-table-column label="消息源用户id" prop="oriId" width="200"></el-table-column>
-          <el-table-column label="消息目标用户id" prop="desId" width="200"></el-table-column>
+          <el-table-column label="编号" fixed prop="id" width="150"></el-table-column>
+          <el-table-column label="消息源用户id" prop="oriId" width="250"></el-table-column>
+          <el-table-column label="消息目标用户id" prop="desId" width="300"></el-table-column>
           <el-table-column label="消息类型"
                            prop="mesType"
-                           width="150"
+                           width="200"
                            :filters="[{text:'普通',value:0},{text:'官方',value:1}]"
                            :filter-method="filterMesType"
           >
