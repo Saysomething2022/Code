@@ -62,12 +62,13 @@
             <template #title>系统日志</template>
           </el-menu-item>
         </router-link>
-         <router-link to="/article" class="menu">
+         
+      <--   <router-link to="/article" class="menu">
           <el-menu-item index="8">
             <el-icon><setting /></el-icon>
             <template #title>返回首页</template>
           </el-menu-item>
-        </router-link> 
+        </router-link> -->
 
     </el-menu>
   </div>
