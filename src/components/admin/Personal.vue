@@ -73,48 +73,7 @@ export default {
   data() {
     return {
       activities: [
-        {
-          operate: '更改了',
-          mod: '系统配置',
-          describe: 'systemName 为 SCUI',
-          type: 'edit',
-          timestamp: '刚刚'
-        },
-        {
-          operate: '删除了',
-          mod: '用户',
-          describe: 'USER',
-          type: 'del',
-          timestamp: '5分钟前'
-        },
-        {
-          operate: '禁用了',
-          mod: '用户',
-          describe: 'USER',
-          type: 'del',
-          timestamp: '5分钟前'
-        },
-        {
-          operate: '创建了',
-          mod: '用户',
-          describe: 'USER',
-          type: 'add',
-          timestamp: '5分钟前'
-        },
-        {
-          operate: '审核了',
-          mod: '用户',
-          describe: 'lolowan 为 通过',
-          type: 'add',
-          timestamp: '10分钟前'
-        },
-        {
-          operate: '登录',
-          mod: '',
-          describe: '成功',
-          type: 'do',
-          timestamp: '1小时前'
-        },
+       
       ],
       userinfo: {
       },
