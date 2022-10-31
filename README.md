@@ -10,16 +10,16 @@
 
 #### 实现效果图展示
 主页
-![image](https://github.com/Anxiaoxue/photo/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221031160226.jpg)
+![image](https://github.com/Anxiaoxue/photo/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221031172116.jpg)
 
 文章发布
-![image](https://user-images.githubusercontent.com/89372363/197431348-988a2394-b9a0-4d53-a425-d07b71649938.png)
+![image](https://github.com/Anxiaoxue/photo/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221031172131.jpg)
 
 个人主页
-![image](https://user-images.githubusercontent.com/89372363/197431050-ac0eab02-1183-439e-877f-9ee179b12d5e.png)
+![image](https://github.com/Anxiaoxue/photo/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221031172135.jpg)
 
 文章详情
-![image](https://github.com/Anxiaoxue/p/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221031160453.jpg)
+![image](https://github.com/Anxiaoxue/photo/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221031172149.jpg)
 
 后台
 ![image](https://github.com/Anxiaoxue/h/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221031161016.jpg)
