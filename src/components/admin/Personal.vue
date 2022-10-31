@@ -20,11 +20,12 @@
               <div class="common">
                 <el-icon><User /></el-icon><span class="common1">{{ userinfo.role }}</span>
               </div>
-
             </div>
           </div>
         </el-card>
       </el-col>
+      
+      
       <el-col :lg="16">
         <el-card shadow="never">
           <el-tabs tab-position="top">
