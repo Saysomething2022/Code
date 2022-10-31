@@ -22,4 +22,4 @@
 ![image](https://github.com/Anxiaoxue/p/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221031160453.jpg)
 
 后台
-![image](https://user-images.githubusercontent.com/89372363/197431521-ddf16629-96b5-421a-a118-dc17da34f6ff.png)
+![image](https://github.com/Anxiaoxue/h/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221031161016.jpg)
