@@ -63,19 +63,19 @@
           </el-menu-item>
         </router-link>
          
-      <!--   <router-link to="/article" class="menu">
+       <router-link to="/article" class="menu">
           <el-menu-item index="8">
-            <el-icon><setting /></el-icon>
+            <el-icon><Loading /></el-icon>
             <template #title>返回首页</template>
           </el-menu-item>
-        </router-link> -->
+        </router-link> 
 
     </el-menu>
   </div>
 </template>
 
 <script>
-import {Setting,Collection,User,House,CreditCard,Warning,Reading,ScaleToOriginal,Postcard} from "@element-plus/icons-vue";
+import {Loading,Collection,User,House,CreditCard,Warning,Reading,ScaleToOriginal,Postcard} from "@element-plus/icons-vue";
 export default {
   name: "Menu",
   data() {
@@ -85,7 +85,7 @@ export default {
   },
   props:['isCollapse'],
   components:{
-    Setting,
+    Loading,
     CreditCard,
     Collection,
     User,
