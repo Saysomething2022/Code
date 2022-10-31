@@ -43,8 +43,8 @@
         <el-table ref="table" :data="messageList" height="400" @selection-change="selectChange">
           <el-table-column type="selection" width="50"></el-table-column>
           <el-table-column label="编号" fixed prop="id" width="150"></el-table-column>
-          <el-table-column label="消息源用户id" prop="oriId" width="250" show-overflow-tooltip="true"></el-table-column>
-          <el-table-column label="消息目标用户id" prop="desId" width="300" show-overflow-tooltip="true"></el-table-column>
+          <el-table-column label="消息源用户id" prop="oriId" width="250"></el-table-column>
+          <el-table-column label="消息目标用户id" prop="desId" width="300"></el-table-column>
           <el-table-column label="消息类型"
                            prop="mesType"
                            width="200"
