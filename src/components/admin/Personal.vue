@@ -30,7 +30,16 @@
         <el-card shadow="never">
           <el-tabs tab-position="top">
           
-            
+            <el-tab-pane label="近期动态">
+              <el-timeline style="margin-top:20px;padding-left:10px;">
+                <el-timeline-item v-for="(activity, index) in activities" :key="index" :timestamp="activity.timestamp" placement="top">
+                  <div class="activity-item">
+                    <el-avatar class="avatar" :size="24" src="img/avatar.jpg"></el-avatar>
+                    <label>{{activity.operate}}</label><el-tag v-if="activity.mod" size="mini">{{activity.mod}}</el-tag>{{activity.describe}}
+                  </div>
+                </el-timeline-item>
+              </el-timeline>
+            </el-tab-pane>
             
             <el-tab-pane label="基本信息">
               <el-form ref="form" :model="userinfo" label-width="80px" style="width: 460px;margin-top:20px;">
@@ -57,7 +66,28 @@
               </el-form>
             </el-tab-pane>
             
-            
+            <el-tab-pane label="个人设置">
+              <el-form ref="form" :model="userinfo" label-width="120px" style="width: 460px;margin-top:20px;">
+                <el-form-item label="布局">
+                  <el-select v-model="config.theme" placeholder="请选择">
+                    <el-option label="常规" value="0"></el-option>
+                    <el-option label="分栏" value="1"></el-option>
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="控制台自由布局">
+                  <el-switch v-model="config.diy"></el-switch>
+                </el-form-item>
+                <el-form-item label="多标签">
+                  <el-switch v-model="config.tags"></el-switch>
+                </el-form-item>
+                <el-form-item label="系统通知">
+                  <el-switch v-model="config.msg"></el-switch>
+                </el-form-item>
+                <el-form-item>
+                  <el-button type="primary">保存</el-button>
+                </el-form-item>
+              </el-form>
+            </el-tab-pane>
             
           </el-tabs>
         </el-card>
@@ -72,7 +102,50 @@ export default {
   name: "Personal",
   data() {
     return {
-     
+     activities: [
+{
+          operate: '更改了',
+          mod: '系统配置',
+          describe: 'systemName 为 SCUI',
+          type: 'edit',
+          timestamp: '刚刚'
+        },
+        {
+          operate: '删除了',
+          mod: '用户',
+          describe: 'USER',
+          type: 'del',
+          timestamp: '5分钟前'
+        },
+        {
+          operate: '禁用了',
+          mod: '用户',
+          describe: 'USER',
+          type: 'del',
+          timestamp: '5分钟前'
+        },
+        {
+          operate: '创建了',
+          mod: '用户',
+          describe: 'USER',
+          type: 'add',
+          timestamp: '5分钟前'
+        },
+        {
+          operate: '审核了',
+          mod: '用户',
+          describe: 'lolowan 为 通过',
+          type: 'add',
+          timestamp: '10分钟前'
+        },
+        {
+          operate: '登录',
+          mod: '',
+          describe: '成功',
+          type: 'do',
+          timestamp: '1小时前'
+        },
+      ],
       userinfo: {
       },
       config: {
