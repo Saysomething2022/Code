@@ -172,7 +172,23 @@ export default {
 .el-card {
   margin-bottom:15px;
 }
-
+.activity-item {
+  font-size: 13px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  line-height: 10px;
+}
+.activity-item label {
+  color: #333;
+  margin-right:10px;
+}
+.activity-item .el-avatar {
+  margin-right:10px;
+}
+.activity-item .el-tag {
+  margin-right:10px;
+}
 
 .user-info-main{
   margin-top: 30px;
