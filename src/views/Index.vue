@@ -18,10 +18,7 @@
                 <span><b>{{$userStore.achievement != null ? $userStore.achievement.articleCount : 0}}</b></span>
                 <span style="margin-top: 20px;">文章</span>
                 </p>
-                <p class="p">
-                  <span><b>{{$userStore.achievement != null ? $userStore.achievement.answerCount : 0}}</b></span>
-                  <span style="margin-top: 20px;">提问</span>
-                </p>
+               
                 <p class="p">
                   <span><b>{{$userStore.achievement != null ? $userStore.achievement.approves : 0}}</b></span>
                   <span style="margin-top: 20px;">获赞</span>
