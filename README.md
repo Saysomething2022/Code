@@ -10,7 +10,7 @@
 
 #### 实现效果图展示
 主页
-![image](https://user-images.githubusercontent.com/89372363/197430885-d02bed06-347f-4bc1-a3ac-3b3c825da161.png)
+![image](https://github.com/Anxiaoxue/photo/blob/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221031160226.jpg)
 
 文章发布
 ![image](https://user-images.githubusercontent.com/89372363/197431348-988a2394-b9a0-4d53-a425-d07b71649938.png)
