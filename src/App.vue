@@ -18,7 +18,7 @@ export default {
 '<meta http-equiv="Cache-Control" content="no-transform">'+
 '<meta http-equiv="Cache-Control" content="no-siteapp">'+
 '<meta content="yes" name="apple-mobile-web-app-capable">'+
-'<meta content="black" name="apple-mobile-web-app-status-bar-style">'+
+'<meta content="black" name="apple-mobile-web-app-status-bar-style">';
   }
   },
   methods:{
