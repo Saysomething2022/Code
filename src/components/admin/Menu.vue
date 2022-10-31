@@ -62,12 +62,12 @@
             <template #title>系统日志</template>
           </el-menu-item>
         </router-link>
-        <!-- <router-link to="/Api" class="menu">
+         <router-link to="/artical" class="menu">
           <el-menu-item index="8">
             <el-icon><setting /></el-icon>
             <template #title>Api</template>
           </el-menu-item>
-        </router-link> -->
+        </router-link> 
 
     </el-menu>
   </div>
