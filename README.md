@@ -1,4 +1,4 @@
-# BBS开发者论坛系统
+# BBS校园论坛系统
 
 #### 介绍
 基于springboot的bbs论坛设计。
