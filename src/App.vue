@@ -10,14 +10,15 @@ export default {
   mounted: ()=>{
   if(this._isMobile()){
   //移动端的时候加入移动端适配代码，界面中追加一下代码
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="report" content="{&quot;pid&quot;:&quot;blog&quot;,&quot;spm&quot;:&quot;1001.2101&quot;">
-<meta name="applicable-device" content="mobile">
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-<meta content="yes" name="apple-mobile-web-app-capable">
-<meta content="black" name="apple-mobile-web-app-status-bar-style">
+  document.headers.innerHTML = document.headers.innerHTML+
+'<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">'+
+'<meta name="apple-mobile-web-app-status-bar-style" content="black">'+
+'<meta name="report" content="{&quot;pid&quot;:&quot;blog&quot;,&quot;spm&quot;:&quot;1001.2101&quot;">'+
+'<meta name="applicable-device" content="mobile">'+
+'<meta http-equiv="Cache-Control" content="no-transform">'+
+'<meta http-equiv="Cache-Control" content="no-siteapp">'+
+'<meta content="yes" name="apple-mobile-web-app-capable">'+
+'<meta content="black" name="apple-mobile-web-app-status-bar-style">'+
   }
   },
   methods:{
