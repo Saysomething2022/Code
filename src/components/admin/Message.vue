@@ -56,7 +56,7 @@
               <el-tag v-if="scope.row.mesType === 1" type="primary">官方</el-tag>
             </template>
           </el-table-column>
-          <el-table-column label="消息内容" prop="content" width="150" show-overflow-tooltip="true"></el-table-column>
+          <el-table-column label="消息内容" prop="content" width="150"></el-table-column>
           <el-table-column label="状态" prop="status" width="150"
                            :filters="[{ text: '未读', value: 0 },{text:'已读',value: 1}]"
                            :filter-method="filterTag"
