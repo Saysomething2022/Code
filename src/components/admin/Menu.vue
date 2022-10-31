@@ -9,7 +9,7 @@
 
     >
       <el-menu-item index="1">
-        <template #title><b style="font-size: 15px">有言以队后台管理</b></template>
+        <template #title><b style="font-size: 15px">有言以对后台管理</b></template>
       </el-menu-item>
       <router-link to="/personal" class="menu">
         <el-menu-item index="2">
